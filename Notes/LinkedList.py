@@ -23,3 +23,21 @@ def removeDuplicatesFromLinkedList(node):
             curr = curr.next
     return curr
 
+# Question2: Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
+# input: node = [9, 2, 2, 4, 17, 8, 1, 0], k = 4
+def returnKToLast(node, k):
+    if not node.next:
+        return None
+    curr = node
+    count = 1
+    temp = []
+    while curr.next:
+        if count == k:
+            temp.append(curr)
+        else:
+            count += 1
+        curr = curr.next
+    return temp
+print(returnKToLast)
+
+
