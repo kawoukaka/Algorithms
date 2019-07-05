@@ -42,8 +42,10 @@ print(urlify('Mr John Smith'))
 # EXAMPLE
 # Input: Tact Coa
 # Output: True (permutations: "taco cat", "atco eta", etc.)
-def palindromePermutation():
-    pass
+def palindromePermutation(s):
+    if s == s[::-1]:
+        return True
+    return False
 
 
 # There are three types of edits that can be performed on strings: insert a character,
@@ -54,16 +56,37 @@ def palindromePermutation():
 # pale, bale -> true
 # pale, bake -> true
 # pale, bike -> false
-def oneAway():
-    pass
-
+def oneAway(s1, s2):
+    temp = {}
+    indx = 0
+    for char in s1:
+        temp[char] = temp
+        indx += 1
+    count = 0
+    for char in s2:
+        if count > 1:
+            return False
+        if char not in temp:
+            count += 1
+    return True
+print(oneAway('pales', 'pale'))
+print(oneAway('pales', 'bike'))
 
 # Implement a method to perform basic string compression using the counts
 # of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the
 # "compressed" string would not become smaller than the original string, your method should return
-# the original string. You can assume the string has only uppercase and lowercase letters (a - z).
-def stringCompression():
-    pass
+# the original string. You can assume the string has only uppercase and lowercase letters (a - z). 
+def stringCompression(s):
+    len_s = len(s)
+    new_s = ''
+    count = 0
+    for i in range(len_s):
+        count += 1
+        if i + 1 >= len_s or s[i] != s[i+1]:
+            new_s += s[i] + str(count)
+            count = 0
+    return new_s if len(new_s) < len_s else s
+print(stringCompression('aabcccccaaa'))
 
 
 # Given an image represented by an NxN matrix, where each pixel in the image is 4
