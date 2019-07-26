@@ -38,6 +38,5 @@ def returnKToLast(node, k):
             count += 1
         curr = curr.next
     return temp
-print(returnKToLast)
 
 
