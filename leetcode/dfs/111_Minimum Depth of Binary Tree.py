@@ -17,4 +17,4 @@ class Solution:
             if node.left:
                 dfs(node.left, level+1)
         dfs(root, 1)
-        return (self.depth)
+        return self.depth
